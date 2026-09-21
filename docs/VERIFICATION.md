@@ -29,4 +29,4 @@ Synthetic screenshots were visually reviewed for Today, logging sheets, selected
 
 The root now shows errors in a dismissible banner while modal forms own their alert presentation, fixing a verified invalid-bottle alert failure. Simulator fixtures have a separate temporary store and are compiled only for debug simulators. No real history was used in the audit.
 
-Build 3 physical signing is pending Mac unlock/keychain access. It has not been installed on the phone; build 2 remains the last verified phone installation. Signing and installation must complete before claiming device delivery.
+Build 3 signed successfully after Mac unlock. The final incremental build included the conflict hit-region fix; `codesign --verify --deep --strict` passed and the bundle version was verified as 3. CoreDevice confirmed installation over the existing `com.dansullivan.babytracker` app on Dan’s iPhone, then confirmed successful launch. No uninstall, store reset, or import was performed. This verifies device delivery; it does not establish two-phone acceptance or independently verify the contents/count of personal records.

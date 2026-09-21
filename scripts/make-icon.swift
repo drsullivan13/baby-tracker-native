@@ -1,0 +1,20 @@
+import AppKit
+let size = 1024
+let representation = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: size, pixelsHigh: size, bitsPerSample: 8, samplesPerPixel: 3, hasAlpha: false, isPlanar: false, colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0)!
+NSGraphicsContext.saveGraphicsState()
+NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: representation)
+let navy = NSColor(srgbRed: 10/255, green: 25/255, blue: 36/255, alpha: 1)
+navy.setFill(); NSBezierPath(rect: NSRect(x: 0, y: 0, width: 1024, height: 1024)).fill()
+NSColor(srgbRed: 22/255, green: 43/255, blue: 57/255, alpha: 1).setFill()
+NSBezierPath(ovalIn: NSRect(x: 150, y: 150, width: 724, height: 724)).fill()
+NSColor(srgbRed: 244/255, green: 125/255, blue: 107/255, alpha: 1).setFill()
+NSBezierPath(ovalIn: NSRect(x: 270, y: 245, width: 490, height: 490)).fill()
+NSColor(srgbRed: 22/255, green: 43/255, blue: 57/255, alpha: 1).setFill()
+NSBezierPath(ovalIn: NSRect(x: 430, y: 420, width: 380, height: 380)).fill()
+NSColor(srgbRed: 222/255, green: 173/255, blue: 88/255, alpha: 1).setFill()
+let star = NSBezierPath()
+star.move(to: NSPoint(x: 698,y: 630)); star.line(to: NSPoint(x: 713,y: 672)); star.line(to: NSPoint(x: 755,y: 687)); star.line(to: NSPoint(x: 713,y: 702)); star.line(to: NSPoint(x: 698,y: 744)); star.line(to: NSPoint(x: 683,y: 702)); star.line(to: NSPoint(x: 641,y: 687)); star.line(to: NSPoint(x: 683,y: 672)); star.close(); star.fill()
+NSColor(srgbRed: 83/255, green: 173/255, blue: 153/255, alpha: 1).setFill()
+NSBezierPath(ovalIn: NSRect(x: 543, y: 765, width: 25, height: 25)).fill()
+NSGraphicsContext.restoreGraphicsState()
+try representation.representation(using: .png, properties: [:])!.write(to: URL(fileURLWithPath: CommandLine.arguments[1]))
